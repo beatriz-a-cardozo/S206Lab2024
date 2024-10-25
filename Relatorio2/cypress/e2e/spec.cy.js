@@ -74,3 +74,4 @@ function criarUser(){
     return infos
 
 }
+  
