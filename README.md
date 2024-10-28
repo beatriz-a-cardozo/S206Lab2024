@@ -1,6 +1,6 @@
 # S206Lab2024
 
-# Autor: Beatriz de Araujo Cardozo
+# Autor: Beatriz de Araujo Cardozo.
 
 # Arquivo de teste de qualidade do site SKOOB (https://www.skoob.com.br)
 Aqui contém funções para testar o sistema de registro, acesso aos livros, pesquisa, explorar e home do site!
