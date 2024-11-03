@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-10-28T19:47:13.582Z",
+    "end": "2024-10-28T19:47:35.731Z",
+    "duration": 22149,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5c2ae4a0-4347-4119-8ade-e762f8395f6c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\spec.cy.js",
+      "file": "cypress\\e2e\\spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6401c1e1-30ac-4206-aa87-9b237bd7f9b0",
+          "title": "teste de criação, registro e login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "teste de criação de usuário com sucesso",
+              "fullTitle": "teste de criação, registro e login teste de criação de usuário com sucesso",
+              "timedOut": null,
+              "duration": 4095,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login');\ncy.get('.btn-link').click();\ncy.get('#firstName').type(\"Beatriz\");\ncy.get('#Text1').type(\"Beatriz\");\ncy.get('#username').type(\"Beatriz\");\ncy.get('#password').type(\"Beatriz\");\ncy.get('.btn-primary').click();\ncy.get('.ng-binding').should(\"contain.text\", \"Registration successful\");",
+              "err": {},
+              "uuid": "0e372847-6ab5-4c76-885c-7f24204f4753",
+              "parentUUID": "6401c1e1-30ac-4206-aa87-9b237bd7f9b0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "teste de criação de usuario com falha",
+              "fullTitle": "teste de criação, registro e login teste de criação de usuario com falha",
+              "timedOut": null,
+              "duration": 1818,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login');\ncy.get('.btn-link').click();\ncy.get('#firstName').type(\"Beatriz\");\ncy.get('#Text1').type(\"Beatriz\");\ncy.get('#username').type(\"Beatriz\");\ncy.get('.btn-primary').should(\"be.disabled\");",
+              "err": {},
+              "uuid": "917513c9-00d0-4f65-b468-105838c465ec",
+              "parentUUID": "6401c1e1-30ac-4206-aa87-9b237bd7f9b0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "teste de login com sucesso",
+              "fullTitle": "teste de criação, registro e login teste de login com sucesso",
+              "timedOut": null,
+              "duration": 5130,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let infos = criarUser();\ncy.visit('https://www.globalsqa.com/angularJs-protractor/registration-login-example/#/login');\ncy.get('#username').type(infos[0]);\ncy.get('#password').type(infos[1]);\ncy.get('.btn-primary').click();\ncy.get('h1.ng-binding').should('contain.text', infos[0]);",
+              "err": {},
+              "uuid": "479d2fb9-be8d-4491-9f18-72e3dba41635",
+              "parentUUID": "6401c1e1-30ac-4206-aa87-9b237bd7f9b0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "deletar user com sucesso",
+              "fullTitle": "teste de criação, registro e login deletar user com sucesso",
+              "timedOut": null,
+              "duration": 7160,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let infos = criarUser();\ncy.login(infos[0], infos[1]);\ncy.get('.ng-binding > a').click();\ncy.get('.btn').click();\ncy.login(infos[0], infos[1]);\ncy.get('.ng-binding').should('have.text', 'Username or password is incorrect'); // have é para esse texto específico",
+              "err": {},
+              "uuid": "8e133792-002e-4151-8d16-18acb49fc2c8",
+              "parentUUID": "6401c1e1-30ac-4206-aa87-9b237bd7f9b0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0e372847-6ab5-4c76-885c-7f24204f4753",
+            "917513c9-00d0-4f65-b468-105838c465ec",
+            "479d2fb9-be8d-4491-9f18-72e3dba41635",
+            "8e133792-002e-4151-8d16-18acb49fc2c8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 18203,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
