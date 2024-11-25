@@ -1,0 +1,6 @@
+1. Os testes são desenvolvidos ou automatizados?
+  Os testes são automatizados. Pois não é preciso desenvolver um código com todos os passos para realizar o teste.
+2. Algum dos testes desenvolvidos são testes End-to-End?
+  Sim. O Postman verifica o fluxo completo da API, dependendo do que o usuário solicitar.
+3. O que se deve fazer para que os testes desenvolvidos funcionem em modod regressão?
+  Para que funcionem dessa maneira, devem-se utomatizar os testes e configurar um ambiente de teste com dados de teste.
