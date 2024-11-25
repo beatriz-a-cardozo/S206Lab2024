@@ -1,0 +1,331 @@
+{
+	"info": {
+		"_postman_id": "cad8d6ca-7aa7-4fa1-b2b6-e66bd9f22a17",
+		"name": "ListaAPI - CatAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39345195"
+	},
+	"item": [
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "PostImage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{APIkey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "cat image",
+									"type": "file",
+									"src": "/C:/Users/beatr/OneDrive/Documentos/codingVScode/S206Lab2024/ListaAPI/cat.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}images/upload",
+							"host": [
+								"{{URL}}images"
+							],
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostFavoritos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"SUCCESS\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{APIkey}}",
+								"type": "text"
+							},
+							{
+								"key": "id_favourites",
+								"value": "POST/",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"image_id\": \"e78\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}favourites?",
+							"host": [
+								"{{URL}}favourites"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostImage - falho (sem autorização)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"AUTHENTICATION_ERROR\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/beatr/OneDrive/Documentos/codingVScode/S206Lab2024/ListaAPI/cat2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}images/upload",
+							"host": [
+								"{{URL}}images"
+							],
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "GetRandom",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}images/search",
+							"host": [
+								"{{URL}}images"
+							],
+							"path": [
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetImageCreated",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Compare JSON created\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.eql({\r",
+									"        \"id\": \"Ozimj_krW\",\r",
+									"        \"url\": \"https://cdn2.thecatapi.com/images/Ozimj_krW.jpg\",\r",
+									"        \"width\": 513,\r",
+									"        \"height\": 640\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}images/Ozimj_krW",
+							"host": [
+								"{{URL}}images"
+							],
+							"path": [
+								"Ozimj_krW"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBreed - falho (raça inválida)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{APIkey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}breeds/caramelo",
+							"host": [
+								"{{URL}}breeds"
+							],
+							"path": [
+								"caramelo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "DeleteFavoritos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"SUCCESS\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{APIkey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}favourites/232500635s",
+							"host": [
+								"{{URL}}favourites"
+							],
+							"path": [
+								"232500635s"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
